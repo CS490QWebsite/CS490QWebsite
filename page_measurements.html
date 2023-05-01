@@ -1,0 +1,291 @@
+<!DOCTYPE HTML>
+<!--
+	Dopetrope by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>CS490Q: Classical Probability</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		
+		<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+		<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+		
+		<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+		<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+		<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+	</head>
+	<body class="homepage is-preload">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<section id="header">
+
+					<!-- Logo -->
+						<h1><a href="index.html">Quantum Information Science: Measurements</a></h1>
+
+					<!-- Nav -->
+						<nav id="nav">
+							<ul>
+								<li><a href="index.html">Home</a></li>
+								<li><a href="page_prerequesites.html">Prerequisites Quiz</a></li>
+								<li><a href="page_classical.html">Classical Probability</a></li>
+								<li><a href="page_quantum.html">Quantum Probability Amplitude</a></li>
+								<li class="current"><a href="page_measurements.html">Measurements</a></li>
+							</ul>
+						</nav>
+						
+					<!-- Intro -->
+					<section id="intro" class="container">
+					  <div>
+						<div class="col-4 col-12-medium">
+						  <section class="f" id="problem1">
+							<header>
+							  <h2>Measurements</h2>
+							</header>
+							<p>
+                                The "Z basis" or the "computational basis" is the basis of states \(|0\rangle  = \begin{pmatrix} 1 \\ 0 \end{pmatrix}\) and \(|1\rangle  = \begin{pmatrix} 0 \\ 1 \end{pmatrix}\). What are the possible outcomes and the probability of observing each outcome for a measurement in the Z basis on the following quantum states:
+                            </p>
+                            <p>
+                                \[
+                                1) \begin{pmatrix}
+                                    1 \\ 0
+                                \end{pmatrix}
+                                \]
+                                \[
+                                2) \begin{pmatrix}
+                                    i \\ 0
+                                \end{pmatrix}
+                                \]
+                                \[
+                                3) \begin{pmatrix}
+                                    0 \\ -i
+                                \end{pmatrix}
+                                \]
+                                \[
+                                4) \begin{pmatrix}
+                                    0 \\ e^{i\phi}
+                                \end{pmatrix}
+                                \]
+                                \[
+                                5) \begin{pmatrix}
+                                    \cos(\theta) \\ e^{i\phi}\sin(\theta)
+                                \end{pmatrix}
+                                \]
+                            </p>
+                            
+						  </section>
+						  <section class="f" id="problem2" style="display: none;">
+							<header>
+							  <h2>In the "X basis"</h2>
+							</header>
+							<p>For the same quantum states as the last prolem, what are the possible results and the probabilities for observing these results if we are measuring in the basis of states \(|+\rangle = \frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\ 1\end{pmatrix}\) and \(|-\rangle = \frac{1}{\sqrt{2}}\begin{pmatrix} 1 \\ -1\end{pmatrix}\)
+                            </p>
+                            <p>
+                                \[
+                                1) \begin{pmatrix}
+                                    1 \\ 0
+                                \end{pmatrix}
+                                \]
+                                \[
+                                2) \begin{pmatrix}
+                                    i \\ 0
+                                \end{pmatrix}
+                                \]
+                                \[
+                                3) \begin{pmatrix}
+                                    0 \\ -i
+                                \end{pmatrix}
+                                \]
+                                \[
+                                4) \begin{pmatrix}
+                                    0 \\ e^{i\phi}
+                                \end{pmatrix}
+                                \]
+                                \[
+                                5) \begin{pmatrix}
+                                    \cos(\theta) \\ e^{i\phi}\sin(\theta)
+                                \end{pmatrix}
+                                \]
+                            </p>
+						  </section>
+                          <section class="f" id="problem3" style="display: none;">
+							<header>
+							  <h2>A complete basis</h2>
+							</header>
+							<p> Consider a 3-level system (i.e. we need 3 vectors to define a complete basis). The most natural and simple basis is of course \(|e_{1}\rangle = \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix}\), \(|e_{2}\rangle = \begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix}\),\(|e_{3}\rangle = \begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix}\). We will call that basis BE. Instead of the BE basis, we will perform the measurements in the basis BU: \(|u_{1}\rangle = \frac{1}{\sqrt{2}}\begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix}\), \(|u_{2}\rangle = \begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix}\), \(|u_{1}\rangle\).
+                            <ul>
+                                <li>What can \(|u_{3}\rangle\)</li> be? (Remember that measurable states need to be perfectly distinguishable, i.e. orthogonal).
+                                <li>How do we implement the measurement of BU if our device can natively perform only BE measurements? I.e. what gate do we need to add in front of the BE measurement in order for the gate + BE measurement to act as a BU measurement? Give that gate as a unitary matrix.</li>
+                            </ul>
+
+                            </p>
+						  </section>
+						  <section class="f" id="problem4" style="display: none;">
+							<header>
+							  <h2>Consecutive measurements</h2>
+							</header>
+							<p> You are given the state \(|+\rangle = \frac{1}{\sqrt{2}}\begin{pmatrix} 1 \\ 1 \end{pmatrix}\). You perform a sequence of 3 measurements: Z followed by a Z, followed by a third Z. What are the possible 3-bit results you get (you get one bit from each measurement) and what is the probability with which you can obtain each? Answer the same question if the sequence of measurements is XXX and then also if it is XZZ.
+                            </p>
+						  </section>
+
+
+						  <!-- <section class="f" id="problem3" style="display: none;">
+							<header>
+							  <h2>Stochastic Matrix Compliation</h2>
+							</header>
+							<p>Consider the same two bits as in the previous question. Transform the following two programs (given as pseudo code) into stochastic matrices acting on state vectors.</p>
+							
+							<p><pre>
+							<code style="font-family: Consolas, 'Courier New', monospace;">
+								function f(bit1, bit2) 
+								  if bit1 == bit2
+									return (bit2, bit1)
+								  else {
+									return (bit1, bit2)
+							</pre></code></p>
+							
+							<p><pre>
+							<code style="font-family: Consolas, 'Courier New', monospace;">
+								function g(bit1, bit2)
+									if bit1 == 0
+										if 0.5 ≤ rand()
+											return (0,0)
+										else
+											return (1,1)
+										end
+									else
+										return (1,0)
+									end
+								end
+							</pre></code></p>
+						  </section>
+						  
+						  <section class="f" id="problem4" style="display: none;">
+							<header>
+							  <h2>Code Compilation/Transpilation</h2>
+							</header>
+							<p>Write down the pseudo code corresponding to the following stochastic matrix:</p>
+							
+							<p style="color: red; font-weight: bold;">TODO: add matrix</p>
+
+							
+							<p>i.e., a block diagonal matrix where each block on the diagonal is the \(\begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix}\) permutation matrix and everything else is zero.</p>
+						  </section> -->
+						</div>
+					  </div>
+					  <footer>
+						<ul class="actions">
+						  <li style="display: inline-block;"><a href="#" class="button large back" onclick="showProblem(event)">Back</a></li>
+						  <li style="display: inline-block; margin-left: 10px;"><a href="#" class="button large next" onclick="showProblem(event)">Next</a></li>
+						  <li><a href="#" class="button alt large" onclick="showMath()">Example Solution</a></li>
+						</ul>
+					  </footer>
+					  
+					  <div id="solutionMath" style="display: none;">
+						<p>The solution is:</p>
+						<p>Replace this text with your solution.</p>
+					  </div>
+
+					  <script>
+						// keep track of the current problem
+						var currentProblem = 1;
+						
+						// hide the "back" button on the first problem
+						  if (currentProblem === 1) {
+							document.querySelector(".back").style.display = "none";
+						  }
+						  
+						function showProblem(event) {
+						  // hide the current problem
+						  document.getElementById("problem" + currentProblem).style.display = "none";
+
+						  // determine which button was clicked
+						  var button = event.target;
+
+						  if (currentProblem === 1 && button.classList.contains("back")) {
+							// do nothing if we're already at the first problem and the "back" button is clicked
+						  } else {
+							if (button.classList.contains("next")) {
+							  // increment the current problem
+							  currentProblem++;
+							} else if (button.classList.contains("back")) {
+							  // decrement the current problem
+							  currentProblem--;
+
+							}
+
+							// show the next/previous problem
+							document.getElementById("problem" + currentProblem).style.display = "block";
+
+							// hide the "back" button on the first problem
+							if (currentProblem === 1) {
+							  document.querySelector(".back").style.display = "none";
+							} else {
+							  document.querySelector(".back").style.display = "inline-block";
+							}
+							
+							// hide the "next" button on the last problem
+							if (currentProblem === 4) {
+							  document.querySelector(".next").style.display = "none";
+							} else {
+							  document.querySelector(".next").style.display = "inline-block";
+							}
+
+							// render math
+							MathJax.typeset();
+						  }
+						}
+
+						function showMath() {
+						  var mathDiv = document.getElementById("solutionMath");
+						  
+						  if (mathDiv.style.display === "none") {
+							// Show the math div and render the math
+							mathDiv.style.display = "block";
+							MathJax.typeset();
+						  } else {
+							// Hide the math div
+							mathDiv.style.display = "none";
+						  }
+						}
+					  </script>
+					</section>
+
+				</section>
+			
+
+			<!-- Footer -->
+				<section id="footer">
+					<div class="container">
+						<div class="row">
+							<div class="col-12">
+
+								<!-- Copyright -->
+									<div id="copyright">
+										<ul class="links">
+											<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+										</ul>
+									</div>
+
+							</div>
+						</div>
+					</div>
+				</section>
+
+		</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

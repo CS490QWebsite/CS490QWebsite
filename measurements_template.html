@@ -1,0 +1,160 @@
+<!DOCTYPE HTML>
+<!--
+	Dopetrope by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>CS490Q: Prerequesites</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		
+		<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+		<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+	</head>
+	<body class="homepage is-preload">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<section id="header">
+
+					<!-- Logo -->
+						<h1><a href="index.html">Quantum Information Science: Measurements</a></h1>
+
+					<!-- Nav -->
+						<nav id="nav">
+							<ul>
+								<li class="current"><a href="index.html">Home</a></li>
+								<li><a href="page_prerequesites.html">Prerequisites Quiz</a></li>
+								<li><a href="page_classical.html">Classical Probability</a></li>
+								<li><a href="page_quantum.html">Quantum Probability Amplitude</a></li>
+								<li><a href="page_measurements.html">Measurements</a></li>
+							</ul>
+						</nav>
+						
+					<!-- Intro -->
+						<section id="intro" class="container">
+							<div class="row">
+								
+								<div class="col-4 col-12-medium">
+									<section class="f">
+										<header>
+											<!-- PAGE TITLE GOES HERE -->
+											<h2>Eigenvalues and Eigen vectors</h2>
+										</header>
+										<!-- QUESTION GOES HERE -->
+										<p>Find the Eigenvalues and Eigenvectors of these 3 matrices.</p>
+										<!-- MATH GOES HERE -->
+										<p>
+											\[
+												\begin{pmatrix}
+												1 & 0 \\
+												0 & 1
+												\end{pmatrix}
+											\]
+												
+											\[
+												\begin{pmatrix}
+												0 & 1 \\
+												1 & 0
+												\end{pmatrix}
+											\]
+
+											\[
+												\begin{pmatrix}
+												0 & -i \\
+												i & 0
+												\end{pmatrix}
+											\]
+										</p>
+									</section>
+								</div>
+							</div>
+							<footer>
+								<ul class="actions">
+									<li><a href="#" class="button large">Next: Determinants</a></li>
+									<li><a href="#" class="button alt large" onclick="showMath()">Example Solution</a></li>
+								</ul>
+							</footer>
+							<!-- SOLUTION GOES HERE -->
+							<div id="solutionMath" style="display: none;">
+								  <p>The solution is:</p>
+								  
+								  <p>
+											\[
+												\begin{pmatrix}
+												1 & 0 \\
+												0 & 1
+												\end{pmatrix}
+											\]
+												
+											\[
+												\begin{pmatrix}
+												0 & 1 \\
+												1 & 0
+												\end{pmatrix}
+											\]
+
+											\[
+												\begin{pmatrix}
+												0 & -i \\
+												i & 0
+												\end{pmatrix}
+											\]
+										</p>
+							</div>
+
+							<script>
+								function showMath() {
+								  var mathDiv = document.getElementById("solutionMath");
+								  
+								  if (mathDiv.style.display === "none") {
+									// Show the math div and render the math
+									mathDiv.style.display = "block";
+									MathJax.typeset();
+								  } else {
+									// Hide the math div
+									mathDiv.style.display = "none";
+								  }
+								}
+
+							</script>
+						</section>
+
+				</section>
+
+			
+
+			<!-- Footer -->
+				<section id="footer">
+					<div class="container">
+						<div class="row">
+							<div class="col-12">
+
+								<!-- Copyright -->
+									<div id="copyright">
+										<ul class="links">
+											<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+										</ul>
+									</div>
+
+							</div>
+						</div>
+					</div>
+				</section>
+
+		</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

@@ -1,0 +1,230 @@
+<!DOCTYPE HTML>
+<!--
+	Dopetrope by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>CS490Q: Classical Probability</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		
+		<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+		<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+		
+		<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+		<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+		<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+	</head>
+	<body class="homepage is-preload">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<section id="header">
+
+					<!-- Logo -->
+						<h1><a href="index.html">Quantum Information Science: Classical Probability</a></h1>
+
+					<!-- Nav -->
+						<nav id="nav">
+							<ul>
+								<li><a href="index.html">Home</a></li>
+								<li><a href="page_prerequesites.html">Prerequisites Quiz</a></li>
+								<li class="current"><a href="page_classical.html">Classical Probability</a></li>
+								<li><a href="page_quantum.html">Quantum Probability Amplitude</a></li>
+								<li><a href="page_measurements.html">Measurements</a></li>
+							</ul>
+						</nav>
+					
+					<!-- Intro -->
+					<section id="intro" class="container">
+					  <div>
+						<div class="col-4 col-12-medium">
+						  <section class="f" id="problem1">
+							<header>
+							  <h2>Reversible Processes</h2>
+							</header>
+							<p>Are stochastic matrices invertible? What are the implications of your answer (something about entropy or chaos or undoing, maybe)?</p>
+						  </section>
+						  <section class="f" id="problem2" style="display: none;">
+							<header>
+							  <h2>State Vectors</h2>
+							</header>
+							<p>Consider two bits for which we know with complete certainty that they are in state 00. What is the state vector representing them (in the sense of a vector that represents a classical probability distribution over possible states)?</p>
+						  </section>
+						  <section class="f" id="problem3" style="display: none;">
+							<header>
+							  <h2>Stochastic Matrix Compliation</h2>
+							</header>
+							<p>Consider the same two bits as in the previous question. Transform the following two programs (given as pseudo code) into stochastic matrices acting on state vectors.</p>
+							
+							<p><pre>
+							<code style="font-family: Consolas, 'Courier New', monospace;">
+								function f(bit1, bit2) 
+								  if bit1 == bit2
+									return (bit2, bit1)
+								  else {
+									return (bit1, bit2)
+							</pre></code></p>
+							
+							<p><pre>
+							<code style="font-family: Consolas, 'Courier New', monospace;">
+								function g(bit1, bit2)
+									if bit1 == 0
+										if 0.5 ≤ rand()
+											return (0,0)
+										else
+											return (1,1)
+										end
+									else
+										return (1,0)
+									end
+								end
+							</pre></code></p>
+						  </section>
+						  
+						  <!-- Problem --> 
+						  <section class="f" id="problem4" style="display: none;">
+							<header>
+							  <h2>Code Compilation/Transpilation</h2>
+							</header>
+							<p>Write down the pseudo code corresponding to the following stochastic matrix:</p>
+							
+							<p>\(\left.\left(\begin{array}{cc|cc|cc}
+								0 & 1 & 0 & 0 & \cdots \\
+								1 & 0 & 0 & 0 & \cdots \\
+								\hline
+								0 & 0 & 0 & 1 & 0 & \cdots \\
+								0 & 0 & 1 & 0 & 0 & \cdots \\
+								\hline
+								\vdots & \vdots & 0 & 0 & \ddots & \\
+								  &   & \vdots & \vdots &  & \ddots \\
+								\end{array}\right)\right\}2^n\text{ rows}\) 
+							</p> 
+
+							
+							<p>i.e., a block diagonal matrix where each block on the diagonal is the \(\begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix}\) permutation matrix and everything else is zero.</p>
+						  </section>
+						</div>
+					  </div>
+					  <footer>
+						<ul class="actions">
+						  <li style="display: inline-block;"><a href="#" class="button large back" onclick="showProblem(event)">Back</a></li>
+						  <li style="display: inline-block; margin-left: 10px;"><a href="#" class="button large next" onclick="showProblem(event)">Next</a></li>
+						  <li><a href="#" class="button alt large" onclick="showMath()">Example Solution</a></li>
+						</ul>
+					  </footer>
+					  
+					  <div id="solutionMath" style="display: none;">
+						<p>The solution is:</p>
+						<p>In general it is a vector as
+					  \[\left[\begin{array}{l}
+						a \\
+						b \\
+						c \\
+						d
+						\end{array}\right]\]
+						where \[a+b+c+d=1\].</p>
+					  </div>
+
+					  <script>
+						// keep track of the current problem
+						var currentProblem = 1;
+						
+						// hide the "back" button on the first problem
+						  if (currentProblem === 1) {
+							document.querySelector(".back").style.display = "none";
+						  }
+						  
+						function showProblem(event) {
+						  // hide the current problem
+						  document.getElementById("problem" + currentProblem).style.display = "none";
+
+						  // determine which button was clicked
+						  var button = event.target;
+
+						  if (currentProblem === 1 && button.classList.contains("back")) {
+							// do nothing if we're already at the first problem and the "back" button is clicked
+						  } else {
+							if (button.classList.contains("next")) {
+							  // increment the current problem
+							  currentProblem++;
+							} else if (button.classList.contains("back")) {
+							  // decrement the current problem
+							  currentProblem--;
+
+							}
+
+							// show the next/previous problem
+							document.getElementById("problem" + currentProblem).style.display = "block";
+
+							// hide the "back" button on the first problem
+							if (currentProblem === 1) {
+							  document.querySelector(".back").style.display = "none";
+							} else {
+							  document.querySelector(".back").style.display = "inline-block";
+							}
+							
+							// hide the "next" button on the last problem
+							if (currentProblem === 4) {
+							  document.querySelector(".next").style.display = "none";
+							} else {
+							  document.querySelector(".next").style.display = "inline-block";
+							}
+
+							// render math
+							MathJax.typeset();
+						  }
+						}
+
+						function showMath() {
+						  var mathDiv = document.getElementById("solutionMath");
+						  
+						  if (mathDiv.style.display === "none") {
+							// Show the math div and render the math
+							mathDiv.style.display = "block";
+							MathJax.typeset();
+						  } else {
+							// Hide the math div
+							mathDiv.style.display = "none";
+						  }
+						}
+					  </script>
+					</section>
+
+				</section>
+			
+
+			<!-- Footer -->
+				<section id="footer">
+					<div class="container">
+						<div class="row">
+							<div class="col-12">
+
+								<!-- Copyright -->
+									<div id="copyright">
+										<ul class="links">
+											<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+										</ul>
+									</div>
+
+							</div>
+						</div>
+					</div>
+				</section>
+
+		</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
