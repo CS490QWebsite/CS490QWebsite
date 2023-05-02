@@ -42,7 +42,7 @@
 					<!-- Intro -->
 					<section id="intro" class="container">
 					  <div>
-						<div class="col-4 col-12-medium">
+						<div>
 						  <section class="f" id="problem1">
 							<header>
 							  <h2>Measurements</h2>
@@ -186,9 +186,35 @@
 						</ul>
 					  </footer>
 					  
-					  <div id="solutionMath" style="display: none;">
+				 	<div id="solutionMath1" style="display: none;">
 						<p>The solution is:</p>
-						<p>Replace this text with your solution.</p>
+						<p>For the first and second matrices, we observe \(|0\rangle\) with probability of one and similarly with probability of one we observe \(|1\rangle\) for the third and forth matrices. Last one gives us \(|0\rangle\) with probability of \(\cos(\theta)^2\) and \(|1\rangle\) with probability of \(\sin(\theta)^2\).</p>
+					  </div>
+					  
+					<div id="solutionMath2" style="display: none;">
+					<p>Quantum states 1 to 4 outcome \(|+\rangle\) and \(|-\rangle\) with probabilities 0.5 and 0.5 . Last quantum state outcomes \(|+\rangle\) with probability of \(\frac{1}{2}(\cos \theta+\sin \theta)^2\) and \(|-\rangle\) with probability of \(\frac{1}{2}(\cos \theta-\sin \theta)^2\).</p>
+					</div>
+					  
+					<div id="solutionMath3" style="display: none;">
+						<p>\[\begin{aligned}
+							& \left|u_3\right\rangle=\frac{1}{\sqrt{2}}\left(\begin{array}{c}
+							1 \\
+							0 \\
+							-1
+							\end{array}\right) \\
+							& \text { gate }=\left(\begin{array}{ccc}
+							\frac{1}{\sqrt{2}} & 0 & \frac{1}{\sqrt{2}} \\
+							0 & 1 & 0 \\
+							\frac{1}{\sqrt{2}} & 0 & -\frac{1}{\sqrt{2}}
+							\end{array}\right)
+							\end{aligned}
+							\]</p>
+					</div>
+					  
+					<div id="solutionMath4" style="display: none;">
+						<p>For measurment ZZZ , we observe all 8 possible 3-bit results with probability of \(\frac{1}{8}\).
+If measurment is XXX, we observe 000 with probability of one.
+If measurment is XZZ, we only observe 000, 001, 010, and 011 each with probabity of \(\frac{1}{4}\).</p>
 					  </div>
 
 					  <script>
@@ -203,6 +229,7 @@
 						function showProblem(event) {
 						  // hide the current problem
 						  document.getElementById("problem" + currentProblem).style.display = "none";
+						  document.getElementById("solutionMath" + currentProblem).style.display = "none";
 
 						  // determine which button was clicked
 						  var button = event.target;
@@ -242,7 +269,7 @@
 						}
 
 						function showMath() {
-						  var mathDiv = document.getElementById("solutionMath");
+						  var mathDiv = document.getElementById("solutionMath"+currentProblem);
 						  
 						  if (mathDiv.style.display === "none") {
 							// Show the math div and render the math

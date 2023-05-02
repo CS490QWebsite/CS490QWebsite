@@ -38,6 +38,9 @@
 					<!-- Intro -->
 						<section id="intro" class="container">
 							<div>
+								<div id="results" style="display: none;">
+									<p id="resultsParagraph"> text </p>
+								</div>
 								<div class="col-4 col-12-medium">
 									<section class="f" id="problem1">
 										<header>
@@ -201,12 +204,14 @@
 									
 								</div>
 							</div>
-						  <footer>
+						<footer>
 							<ul class="actions">
-							  <li><a href="#" class="button large" onclick="showProblem()">Next</a></li>
-							  <li><a href="#" class="button alt large" onclick="showMath()">Example Solution</a></li>
+								<li style="display: inline-block;"><a href="#" class="button large back" onclick="showProblem(event)">Back</a></li>
+								<li style="display: inline-block; margin-left: 10px;"><a href="#" class="button alt2 large next" onclick="showProblem(event)">Next</a></li>
+								<li><a href="#" class="button alt large example" onclick="showMath()">Example Solution</a></li>
+								<li><a href="#" class="button alt2 large results" onclick="showResults()">Results</a></li>
 							</ul>
-						  </footer>
+							</footer>		
 							
 							<div id="solutionMath1" style="display: none;">
 								  <p>The solution is:</p>
@@ -253,25 +258,25 @@
 								  
 								  <p>
 									For a \[2 \times 2\] matrix
-\[
-A \equiv\left[\begin{array}{ll}
-a & b \\
-c & d
-\end{array}\right],
-\]
-the matrix inverse is
-\[
-\begin{aligned}
-\mathrm{A}^{-1} & =\frac{1}{|\mathrm{~A}|}\left[\begin{array}{cc}
-d & -b \\
--c & a
-\end{array}\right] \\
-& =\frac{1}{a d-b c}\left[\begin{array}{cc}
-d & -b \\
--c & a
-\end{array}\right] .
-\end{aligned}
-\]
+										\[
+										A \equiv\left[\begin{array}{ll}
+										a & b \\
+										c & d
+										\end{array}\right],
+										\]
+										the matrix inverse is
+										\[
+										\begin{aligned}
+										\mathrm{A}^{-1} & =\frac{1}{|\mathrm{~A}|}\left[\begin{array}{cc}
+										d & -b \\
+										-c & a
+										\end{array}\right] \\
+										& =\frac{1}{a d-b c}\left[\begin{array}{cc}
+										d & -b \\
+										-c & a
+										\end{array}\right] .
+										\end{aligned}
+										\]
 								  </p>
 							</div>
 							<div id="solutionMath4" style="display: none;">
@@ -285,36 +290,141 @@ d & -b \\
 								  <p>The solution is:</p>
 								 
 								  <p>
-									sol 5
-								  </p>
+									\[
+									\begin{aligned}
+									\exp (\alpha I) & =I+\alpha I+\frac{\alpha^2}{2} I+\cdots \\
+									& =\left(1+\alpha+\frac{\alpha^2}{2}+\cdots\right) I \\
+									& =e^\alpha I \\
+									& =\left[\begin{array}{ll}
+									e^\alpha & 0 \\
+									0 & e^\alpha
+									\end{array}\right] \\
+									\exp \left(\beta\left(\begin{array}{ll}
+									0 & 1 \\
+									1 & 0
+									\end{array}\right)\right) & =\left(\begin{array}{ll}
+									1 & 0 \\
+									0 & 1
+									\end{array}\right)+\beta\left(\begin{array}{ll}
+									0 & 1 \\
+									1 & 0
+									\end{array}\right)+\frac{\beta^2}{2}\left(\begin{array}{ll}
+									1 & 0 \\
+									0 & 1
+									\end{array}\right)+\cdots \\
+									& =\left(\begin{array}{cc}
+									1+\frac{\beta^2}{2}+\cdots & \beta+\frac{\beta^3}{6}+\cdots \\
+									\beta+\frac{\beta^3}{6}+\cdots & 1+\frac{\beta^2}{2}+\cdots
+									\end{array}\right)
+									\end{aligned}
+									\]
+									</p>
 							</div>
+
+							<div id="responseForm" style="display: none;">
+								<p> <h3><b>How correct was your solution?</b></h3></p>
+									<ul class="actions">
+									<li><a href="#" class="button medium" onclick="correctnessCounter(2)">Completely Correct</a></li>
+									<li><a href="#" class="button alt2 medium" onclick="correctnessCounter(1)">Partially Correct</a></li>
+									<li><a href="#" class="button alt medium" onclick="correctnessCounter(0)">Not Correct</a></li>
+									</ul>
+								<p> <h3><b> How confident do you feel about questions like this?</b></h3></p>
+									<ul class="actions">
+									<li><a href="#" class="button medium" onclick="confidenceCounter(2)">Very Confident</a></li>
+									<li><a href="#" class="button alt2 medium" onclick="confidenceCounter(1)">Somewhat Confident</a></li>
+									<li><a href="#" class="button alt medium" onclick="confidenceCounter(0)">Not Very Confident</a></li>
+									</ul>
+								</div>
+
+	
 
 					  <script>
 						// keep track of the current problem
 						var currentProblem = 1;
 
-						function showProblem() {
-						  // hide the current problem
-						  document.getElementById("problem" + currentProblem).style.display = "none";
-						  document.getElementById("solutionMath"+ currentProblem).style.display = "none";
+						// function showProblem() {
+						//   // hide the current problem
+						//   document.getElementById("problem" + currentProblem).style.display = "none";
+						//   document.getElementById("solutionMath"+ currentProblem).style.display = "none";
 
-						  // increment the current problem
-						  currentProblem++;
+						//   // increment the current problem
+						//   currentProblem++;
 
-						  // if we've reached the last problem, reset to the first one
-						  if (currentProblem > 5) {
-							currentProblem = 1;
+						//   // if we've reached the last problem, reset to the first one
+						//   if (currentProblem > 5) {
+						// 	currentProblem = 1;
+						//   }
+
+						//   // show the next problem
+						//   document.getElementById("problem" + currentProblem).style.display = "block";
+
+						//   // render math
+						//   MathJax.typeset();
+						// }
+						// 						// hide the "back" button on the first problem
+						// 						if (currentProblem === 1) {
+						// 	document.querySelector(".back").style.display = "none";
+						//   }
+								// hide the "back" button on the first problem
+							if (currentProblem === 1) {
+							document.querySelector(".back").style.display = "none";
+							document.querySelector(".results").style.display = "none";
 						  }
 
-						  // show the next problem
-						  document.getElementById("problem" + currentProblem).style.display = "block";
+						  
+						function showProblem(event) {
+						  // hide the current problem
+						  document.getElementById("problem" + currentProblem).style.display = "none";
+						  document.getElementById("solutionMath" + currentProblem).style.display = "none";
+						  document.querySelector(".example").style.display = "block";
+						  results.style.display = "none";
+						  responseForm.style.display = "none";
 
-						  // render math
-						  MathJax.typeset();
+						  // determine which button was clicked
+						  var button = event.target;
+
+						  if (currentProblem === 1 && button.classList.contains("back")) {
+							// do nothing if we're already at the first problem and the "back" button is clicked
+						  } else {
+							if (button.classList.contains("next")) {
+							  // increment the current problem
+							  currentProblem++;
+							} else if (button.classList.contains("back")) {
+							  // decrement the current problem
+							  currentProblem--;
+
+							}
+
+							// show the next/previous problem
+							document.getElementById("problem" + currentProblem).style.display = "block";
+
+							// hide the "back" button on the first problem
+							if (currentProblem === 1) {
+							  document.querySelector(".back").style.display = "none";
+							} else {
+							  document.querySelector(".back").style.display = "inline-block";
+							}
+							
+							// hide the "next" button on the last problem
+							if (currentProblem === 5) {
+							  document.querySelector(".next").style.display = "none";
+							  document.querySelector(".results").style.display = "inline-block";
+							} else {
+							  document.querySelector(".next").style.display = "inline-block";
+							  document.querySelector(".results").style.display = "none";
+							  results.style.display = "none";
+							}
+
+							// render math
+							MathJax.typeset();
+						  }
 						}
+
 
 						function showMath() {
 						  var mathDiv = document.getElementById("solutionMath"+ currentProblem);
+
+						  var responseForm = document.getElementById("responseForm");
 						  
 						  if (mathDiv.style.display === "none") {
 							// Show the math div and render the math
@@ -324,7 +434,58 @@ d & -b \\
 							// Hide the math div
 							mathDiv.style.display = "none";
 						  }
+
+						  if (responseForm.style.display === "none") {
+							// Show the math div and render the math
+							responseForm.style.display = "block";
+						  } else {
+							// Hide the math div
+							responseForm.style.display = "none";
+						  }
+
 						}
+
+						var completedBoolean = 1
+						var correctnessResponses = [-1, -1, -1, -1, -1]
+						var confidenceResponses = [-1, -1, -1, -1, -1]
+
+						function showResults() {
+							// correctnessResponses = [1, 1, 1, 1, 1]
+							// confidenceResponses = [1, 1, 1, 1, 1]
+							var confidenceScore = 0
+							var correctnessScore = 0
+							for (let i = 0; i < 5; i++){
+								if (correctnessResponses[i] == -1 | confidenceResponses[i] == -1){
+									completedBoolean = -1
+								}
+								correctnessScore = correctnessResponses[i] + correctnessScore
+								confidenceScore = confidenceResponses[i] + confidenceScore 
+							}
+							if (completedBoolean == -1){
+								document.getElementById("resultsParagraph").innerHTML = "You did not mark your answers for some problems. Please go back and answer the questions again." + correctnessResponses + confidenceResponses
+							}
+							else{
+								// document.getElementById("resultsParagraph").innerHTML = "Your confidence score on all of the problems was " + confidenceScore + "text" + correctnessScore
+
+								document.getElementById("resultsParagraph").innerHTML = "<h2> Your score: </h2>" + "<b> Your confidence score is " + confidenceScore + ", and your correctness score is " + correctnessScore + ".</b><br>" + "The scores for each of the questions were, in order, for confidence: " + confidenceResponses + " and for correctness: " + correctnessResponses + " (see the the scoring criteria below).<br> <br>" + "<h3>Scoring:</h3>" + "<br>" + "Correctness: Not Correct (0), Partially Correct (1), Completely Correct (2) Confidence: Not Very Confident (0), Somewhat Confident (1), Very Confident (2) <br> <br>" + "<b> If your correctness score is less than 4 and your confidence score is less than 5, we recommend you reconsider taking the course without additional preparation. If your correctness score is between 4 and 8 or your confidence score is between 4 and 9, we suggest taking the course but recommend reviewing the prerequisites before the course begins. If your correctness score is more than 8 and your confidence score is more than 9, you are likely ready to take the course now.</b>"
+							}
+							results.style.display = "block";
+							responseForm.style.display = "none";
+							document.querySelector(".example").style.display = "none";
+							document.getElementById("solutionMath" + currentProblem).style.display = "none";
+							// document.getElementById("problem" + currentProblem).style.display = "none";
+							document.getElementById("problem" + currentProblem).style.display = "none";
+							mathDiv.style.display = "none";
+						}
+
+						function correctnessCounter(response){
+							correctnessResponses[currentProblem - 1] = response
+						}
+
+						function confidenceCounter(response){
+							confidenceResponses[currentProblem - 1] = response
+						}
+
 					  </script>
 						</section>
 

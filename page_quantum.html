@@ -42,7 +42,7 @@
 					<!-- Intro -->
 					<section id="intro" class="container">
 					  <div>
-						<div class="col-4 col-12-medium">
+						<div>
 						
 							<!--- Problem ---> 
 						  <section class="f" id="problem1">
@@ -103,10 +103,18 @@
 						</ul>
 					  </footer>
 					  
-					  <div id="solutionMath" style="display: none;">
+					  <div id="solutionMath1" style="display: none;">
 						<p>The solution is:</p>
-						<p>Replace this text with your solution.</p>
+						<p>Matrices 1, 2, 5, 6, and 10 are classical probabilistic processes and among them first, fifth and sixth are without randomness. Matrices 5 to 8 are quantum processes.</p>
 					  </div>
+					  
+					 <div id="solutionMath2" style="display: none;">
+						<p>States 1 and 4 are not distinguishable quantum probability distributions. States 2 and 5 are not distinguishable either.</p>
+						</div>
+					  
+					  <div id="solutionMath3" style="display: none;">
+						<p>0.5,0.5; \(\sin(\theta)^2\),\(\cos(\theta)^2\); 0.5,0.5; 0.5,0.5</p>
+						</div>
 
 					  <script>
 						// keep track of the current problem
@@ -120,6 +128,7 @@
 						function showProblem(event) {
 						  // hide the current problem
 						  document.getElementById("problem" + currentProblem).style.display = "none";
+						  document.getElementById("solutionMath" + currentProblem).style.display = "none";
 
 						  // determine which button was clicked
 						  var button = event.target;
@@ -159,7 +168,7 @@
 						}
 
 						function showMath() {
-						  var mathDiv = document.getElementById("solutionMath");
+						  var mathDiv = document.getElementById("solutionMath"+ currentProblem);
 						  
 						  if (mathDiv.style.display === "none") {
 							// Show the math div and render the math

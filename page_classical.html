@@ -118,18 +118,52 @@
 						</ul>
 					  </footer>
 					  
-					  <div id="solutionMath" style="display: none;">
+					  <div id="solutionMath1" style="display: none;">
 						<p>The solution is:</p>
-						<p>In general it is a vector as
+						<p>The inverse of a stochastic matrix is a stochastic matrix if it is a permutation matrix, i.e., it has one entry of one in each row and column. Besides that if the matrix is not invertible. It interprets as a stochastic matrix that some information will be irretrievably lost about the initial state after just a single time step.</p>
+					  </div>
+					  
+					  <div id="solutionMath2" style="display: none;">
+					  In general it is a vector as
 					  \[\left[\begin{array}{l}
 						a \\
 						b \\
 						c \\
 						d
 						\end{array}\right]\]
-						where \[a+b+c+d=1\].</p>
+						where \[a+b+c+d=1\].
 					  </div>
-
+					  
+					  <div id="solutionMath3" style="display: none;">
+					  \[\begin{aligned}
+						& {\left[\begin{array}{llll}
+						1 & 0 & 0 & 0 \\
+						0 & 1 & 0 & 0 \\
+						0 & 0 & 1 & 0 \\
+						0 & 0 & 0 & 1
+						\end{array}\right]} \\
+						& {\left[\begin{array}{llll}
+						\frac{1}{2} & \frac{1}{2} & 0 & 0 \\
+						0 & 0 & 0 & 0 \\
+						0 & 0 & 1 & 1 \\
+						\frac{1}{2} & \frac{1}{2} & 0 & 0
+						\end{array}\right]}
+						\end{aligned}\]
+					  </div>
+					  
+					  <div id="solutionMath4" style="display: none;">
+<p><pre>
+							<code style="font-family: Consolas, 'Courier New', monospace,text-align: center;">
+								function ans(num n)
+									if n%2=0
+										return n+1;
+									else
+										return n-1;
+									end
+								end
+							</pre></code></p>
+					  </div>
+					  
 					  <script>
 						// keep track of the current problem
 						var currentProblem = 1;
@@ -142,6 +176,7 @@
 						function showProblem(event) {
 						  // hide the current problem
 						  document.getElementById("problem" + currentProblem).style.display = "none";
+						  document.getElementById("solutionMath" + currentProblem).style.display = "none";
 
 						  // determine which button was clicked
 						  var button = event.target;
@@ -181,7 +216,7 @@
 						}
 
 						function showMath() {
-						  var mathDiv = document.getElementById("solutionMath");
+						  var mathDiv = document.getElementById("solutionMath"+currentProblem);
 						  
 						  if (mathDiv.style.display === "none") {
 							// Show the math div and render the math

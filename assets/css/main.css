@@ -1667,6 +1667,31 @@ input, select, textarea {
 				background: #151112;
 			}
 
+
+		input[type="button"].alt2,
+		input[type="submit"].alt2,
+		input[type="reset"].alt2,
+		button.alt2,
+		.button.alt2 {
+			background: #8B233A;
+		}
+
+			input[type="button"].alt2:hover,
+			input[type="submit"].alt2:hover,
+			input[type="reset"].alt2:hover,
+			button.alt2:hover,
+			.button.alt2:hover {
+				background: #9B334A;
+			}
+
+			input[type="button"].alt2:active,
+			input[type="submit"].alt2:active,
+			input[type="reset"].alt2:active,
+			button.alt2:active,
+			.button.alt2:active {
+				background: #7B132A;
+			}
+
 		input[type="button"].icon:before,
 		input[type="submit"].icon:before,
 		input[type="reset"].icon:before,
